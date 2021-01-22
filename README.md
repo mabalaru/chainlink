@@ -18,8 +18,8 @@ admin_ocr_eth_addr=0x0000000000000000000000000000000000000000   #OCR Node Addres
 admin_matic_eth_addr=0x0000000000000000000000000000000000000000 #Matic Node Address
 rpc=http://GETH_RPC:8545
 ```
-
+```
 systemctl enable --now price_exporter.timer
 systemctl enable --now chainlink_rewards_exporter.timer
 systemctl enable --now node_exporter.service
-
+```
