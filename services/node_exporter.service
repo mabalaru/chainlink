@@ -1,0 +1,13 @@
+# Managed by Ansible - do not modify
+
+[Unit]
+Description=node_exporter
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/node_exporter --collector.systemd --collector.textfile.directory /run/node_exporter/collector
+Restart=always
+RestartSec=10s
+
+[Install]
+WantedBy=multi-user.target

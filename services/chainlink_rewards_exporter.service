@@ -1,0 +1,6 @@
+[Service]
+Type=oneshot
+User=root
+ExecStart=/usr/local/bin/chainlink_rewards_exporter.sh
+#TimeoutStartSec=3s
+#TimeoutStopSec=1s

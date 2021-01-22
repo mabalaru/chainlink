@@ -1,0 +1,6 @@
+[Service]
+Type=oneshot
+User=root
+ExecStart=/usr/local/bin/price_exporter.sh the-graph,chainlink,ethereum,near,solana,cosmos,bitcoin,avalanche,nucypher,kava,serum,secret,skale
+TimeoutStartSec=1s
+TimeoutStopSec=1s
