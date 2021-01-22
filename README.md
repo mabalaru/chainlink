@@ -1,5 +1,4 @@
-# chainlink
-Chainlink monitoring
+# Chainlink Dashboard
 
 Prometheus config:
 port :80 is a proxy which serve :6688 from localhost so that you can safetly export the metrics and use normal UFW rules to firewall it.
