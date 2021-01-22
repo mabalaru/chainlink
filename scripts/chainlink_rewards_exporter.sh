@@ -7,6 +7,7 @@ mkdir -p "$COLLECTOR_DIR"
 
 
 node_binary=/root/.nvm/versions/node/v15.2.0/bin/node
+js_path=/usr/local/bin
 contract_runlog=0x0000000000000000000000000000000000000000      #ETH Node contract for runlog
 admin_eth_addr=0x0000000000000000000000000000000000000000       #ETH Node address
 admin_ocr_eth_addr=0x0000000000000000000000000000000000000000   #OCR Node Address
@@ -21,11 +22,11 @@ runlog_reward=`/usr/bin/curl -s -X POST --header 'Content-Type: application/json
 #Runlog
         echo "chainlink_rewards_runlog{job_type=\"runlog\",contract=\"$contract_runlog\"} $runlog_reward" > $OUTPUT
 
-$node_binary /root/fluxmonitor.js $admin_eth_addr > /tmp/fluxmonitor.out
+$node_binary $js_path/fluxmonitor.js $admin_eth_addr > /tmp/fluxmonitor.out
 head -n -1 /tmp/fluxmonitor.out > /tmp/fluxmonitor_jobs.out
-$node_binary /root/ocr.js $admin_ocr_eth_addr > /tmp/ocr.out
+$node_binary $js_path/ocr.js $admin_ocr_eth_addr > /tmp/ocr.out
 head -n -1 /tmp/ocr.out > /tmp/ocr_jobs.out
-$node_binary /root/fluxmonitor_matic.js $admin_matic_eth_addr > /tmp/fluxmonitor_matic.out
+$node_binary $js_path/fluxmonitor_matic.js $admin_matic_eth_addr > /tmp/fluxmonitor_matic.out
 head -n -1 /tmp/fluxmonitor_matic.out > /tmp/fluxmonitor_matic_jobs.out
 
 total_rewards_flux_jobs=$(tail -n 1 /tmp/fluxmonitor.out)
